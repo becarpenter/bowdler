@@ -1,7 +1,8 @@
 # bowdler
  A simple Python3 tool to log questionable terminology in a draft or RFC.
 
-- It needs two input files, a vocabulary and the target document (preferably plain text)
+- It needs two input files, a vocabulary and the target document (preferably plain text,
+but an HTML or even XML2RFC file is usually OK)
 - It generates an output log file (or sends the log to standard output if you prefer)
 - Uses Tk to provide a simple GUI
 - Tested on Windows 10 and Linux with Python 3.7
