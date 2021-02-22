@@ -198,7 +198,8 @@ if not naughty:
 showinfo(title=T,
          message = "Inputs complete; select log file.")
     
-result = asksaveasfile(defaultextension=".txt", title="Select output file")
+result = asksaveasfile(defaultextension=".txt",
+                       title="Select output file (Cancel to use standard output)")
 
 if result:
     so = False
