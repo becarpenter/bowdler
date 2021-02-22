@@ -20,4 +20,5 @@ The vocabulary file is plain text:
 - Comments start with #
 
 The program is bowdler.py
+
 An example vocabulary file is rudewords.txt
