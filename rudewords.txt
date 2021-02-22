@@ -1,0 +1,41 @@
+#Partial IETF suspect words list
+#(See https://github.com/ietf/terminology)
+#A single word means: this word is suspect
+#(parts of speech must be entered separately)
+#A single word preceded by * means: this word is totally unacceptable
+#(and will not be printed in the log)
+#Two words means: the first word is suspect alone, but OK with the second word
+#A phrase with + signs like "third+world" is suspect
+#Very short words (except "he") and blank lines are ignored
+#Not case-sensitive
+#Comments, you've guessed it, start with #
+black hole
+blacklist
+whitelist
+white+list
+third+world
+man+in+the+middle
+man+hours
+master
+slave
+nonce
+*veryrude
+balkan
+balkanise
+balkanisation
+balkanize
+balkanization
+grandfather
+grandfathers
+grandfathered
+sanity
+crazy
+dummy
+guy
+guys
+she
+her
+hers
+he
+him
+his

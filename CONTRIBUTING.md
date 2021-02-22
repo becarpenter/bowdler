@@ -1,0 +1,1 @@
+Right now the license for this code is Do What The Flip You Want With It. If people are interested we can put it under Simplified BSD. If any body sends a PR, I'll see if my GitHub skills are adequate.
