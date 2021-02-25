@@ -7,6 +7,7 @@
 #Two words means: the first word is suspect alone, but OK with the second word
 #A phrase with + signs like "third+world" is suspect
 #Very short words (except "he") and blank lines are ignored
+#Strings in double quotes are exempt from checking (e.g. "John White")
 #Not case-sensitive
 #Comments, you've guessed it, start with #
 black hole
@@ -39,3 +40,8 @@ hers
 he
 him
 his
+#Exempt phrases follow
+"David Black"
+"D. Black"
+"David L. Black"
+"Black, D."

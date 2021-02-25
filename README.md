@@ -16,6 +16,7 @@ The vocabulary file is plain text:
 - If word A is undesirable on its own, but OK when followed by word B,
   put "A B" on the same line, e.g. "black hole".
 - If a whole phrase is undesirable, use + signs, e.g. "man+in+the+middle"
+- Strings in double quotes are exempt from checking (e.g. "John White")
 - Not case-sensistive
 - Very short words (except "he") and blank lines are ignored
 - Comments start with #

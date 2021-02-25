@@ -9,6 +9,7 @@
 - If word A is undesirable on its own, but OK when followed by word B,
   put "A B" on the same line, e.g. "black hole".
 - If a whole phrase is undesirable, use + signs, e.g. "man+in+the+middle"
+- Strings in double quotes are exempt from checking (e.g. "John White")
 - Not case-sensistive
 - Very short words (except "he") and blank lines are ignored
 - Comments start with #
@@ -84,24 +85,33 @@ raw_vocab = [x.replace('\n','').lower() for x in raw_vocab if x=='he\n' or (len(
 
 #Parse vocabulary
 vocab = []
+exempt = []
 try:
     for v in raw_vocab:
-        if " " in v:
+        if v[0] == '"':
+            #exempt phrase
+            exempt.append(v.replace('"',''))
+        elif " " in v:
+            #suspect word but acceptable 2-word phrase
             head, tail = v.split(" ",1)
             newv = vocword(head)
             newv.OK_tail = tail
             vocab.append(newv)
         elif "+" in v:
+            #multiword suspect phrase
             head, tail = v.split("+",1)
             newv = vocword(head)
             newv.bad_tail = tail.split("+")
             newv.raw = v.replace("+"," ")
             vocab.append(newv)
         elif v[0] == "*":
+            #unprintable word
             newv = vocword(v[1:])
             newv.never = True
             vocab.append(newv)
+        
         else:
+            #suspect phrase
             vocab.append(vocword(v))
         if len(vocab) > 1000:
             0/0  #implausibly large vocabulary
@@ -109,11 +119,16 @@ except:
     showinfo(title=T,
          message = "Invalid vocabulary file.")
     exit()
-    
 
-#Tidy target (force lower case, remove punctuation)
+## Prepare target for checking:
+
+#Force lower case, remove exempt phrases
+for phrase in exempt:
+    raw_target = [x.lower().replace(phrase,'') for x in raw_target]
+
+#Remove punctuation
 trans = "".maketrans('','',string.punctuation)
-raw_target = [x.replace('-',' ').replace('/',' ').translate(trans).lower()
+raw_target = [x.replace('-',' ').replace('/',' ').translate(trans)
               for x in raw_target]
 
 #Change target into a single array with interspersed line numbers
@@ -129,7 +144,8 @@ del raw_target
 #Log totals
 
 log = []
-log.append("Vocabulary '"+fn1+"' has "+str(len(vocab))+" entries.")
+log.append("Vocabulary '"+fn1+"' has "+str(len(vocab))+" entries & "
+           +str(len(exempt))+" exempt phrases")
 log.append("Target '"+fn2+"' has "+str(line_no)+" lines.")
 ##print(log) #for debug
 
