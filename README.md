@@ -24,3 +24,8 @@ The vocabulary file is plain text:
 The program is bowdler.py
 
 An example vocabulary file is rudewords.txt
+
+The alternative version, rfc-vocab.py, does the same thing but applies it to a whole directory of rfcs.
+
+(Dr Thomas Bowdler was a 19th century British medical doctor famous for publishing an expurgated version of Shakespeare's plays. Whether this was a good or bad thing has been debated ever since. This software offers no judgment, simply information.)
+
