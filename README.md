@@ -1,11 +1,17 @@
 # bowdler
  A simple Python3 tool to log questionable terminology in a draft or RFC.
+ 
+**PLEASE NOTE:**
 
-- It needs two input files, a vocabulary and the target document (preferably plain text,
+The IESG (the IETF's steering group) has issued a formal statement about inclusive language [https://www.ietf.org/about/groups/iesg/statements/on-inclusive-language/]. The tool in this repository has no purpose except logging the use of certain words or phrases in text files.
+
+The tool:
+
+- Needs two input files, a vocabulary and the target document (preferably plain text,
 but an HTML or even XML2RFC file is usually OK)
-- It generates an output log file (or sends the log to standard output if you prefer)
+- Generates an output log file (or sends the log to standard output if you prefer)
 - Uses Tk to provide a simple GUI
-- Tested on Windows 10 and Linux with Python 3.7
+- Has been tested on Windows 10 and Linux, both with Python 3.7
 
 The vocabulary file is plain text:
 
